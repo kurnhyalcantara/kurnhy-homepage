@@ -1,11 +1,12 @@
 'use client';
 
 import { Flex, Heading, Stack, useColorMode, Text } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 
 import BlogPost from 'components/BlogPost';
 import Container from 'components/Container';
 
-import { frontMatter as kapitangMassalanra } from 'app/mdx/kapitang-massalanra-panglima-perang-datu-lowa.mdx';
+import { FrontMatter } from 'libs/mdx';
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -13,6 +14,19 @@ const Home = () => {
     light: 'gray.700',
     dark: 'gray.400',
   };
+  const [posts, setPosts] = useState<FrontMatter[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/posts');
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <Container>
       <Stack
@@ -59,7 +73,9 @@ const Home = () => {
           <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
             Tulisan Populer
           </Heading>
-          <BlogPost {...kapitangMassalanra}></BlogPost>
+          {posts.map((post) => {
+            return <BlogPost key={post._resourcePath} {...post} />;
+          })}
         </Flex>
       </Stack>
     </Container>
