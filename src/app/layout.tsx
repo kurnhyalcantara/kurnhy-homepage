@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
-import Providers from 'components/Providers';
-
-import { fonts } from 'app/fonts';
+import { fonts } from '@/app/fonts';
+import Provider from '@/components/ui/provider';
+import Container from '@/components/ui/container';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={fonts.rubikFont.variable}>
       <body>
-        <Providers>{children}</Providers>
+        <Provider>
+          <Container>{children}</Container>
+        </Provider>
       </body>
     </html>
   );

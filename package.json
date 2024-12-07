@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-typescript-chakra-ui-template",
-  "version": "1.2.3",
+  "name": "kurnhy-homepage",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,7 +14,7 @@
     "test:update-snapshots": "jest -c jest.config.js --updateSnapshot"
   },
   "dependencies": {
-    "@chakra-ui/next-js": "^2.1.4",
+    "@chakra-ui/next-js": "^2.4.2",
     "@chakra-ui/react": "^2.6.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.11.0",
@@ -25,6 +25,7 @@
     "framer-motion": "^10.12.16",
     "gray-matter": "^4.0.3",
     "next": "^14.2.3",
+    "next-themes": "^0.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1"

@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Button, Flex, IconButton, useColorMode } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import styled from '@emotion/styled';
